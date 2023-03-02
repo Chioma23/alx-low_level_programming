@@ -1,8 +1,7 @@
-# !include "main.h"
-
+#include "main.h"
 /**
- *_strncat-concentrate two strings
- *using at most n bytes for src
+ * _strncat - concatenate two strings
+ * using at most n bytes from src
  * @dest: input value
  * @src: input value
  * @n: input value
