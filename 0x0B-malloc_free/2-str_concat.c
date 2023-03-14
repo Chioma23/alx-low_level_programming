@@ -7,7 +7,6 @@
  * @s2: input two to concat
  * Return: concat of s1 and s2
  */
-
 char *str_concat(char *s1, char *s2)
 {
 	char *conct;
@@ -23,6 +22,7 @@ char *str_concat(char *s1, char *s2)
 	while (s2[ci] != '\0')
 		ci++;
 	conct = malloc(sizeof(char) * (i + ci + 1));
+
 	if (conct == NULL)
 		return (NULL);
 	i = ci = 0;
@@ -30,13 +30,13 @@ char *str_concat(char *s1, char *s2)
 	{
 		conct[i] = s1[i];
 		i++;
-
-	}
+}
 	while (s2[ci] != '\0')
 	{
 		conct[i] = s2[ci];
 		i++, ci++;
-	}
+}
 	conct[i] = '\0';
 	return (conct);
+
 }
