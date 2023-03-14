@@ -1,19 +1,54 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * malloc_checked - allocates memory.
- * @b: amount of bytes.
+ * argstostr - convert the params passed to the program to string
+ * @ac: the argument count
+ * @av: the argument vector
  *
- * Return: pointer to the allocated memory.
- * if malloc fails, status value is equal to 98.
+ * Return: ...
  */
-void *malloc_checked(unsigned int b)
+char *argstostr(int ac, char **av)
 {
-	char *p;
+	int ch = 0, i = 0, j = 0, k = 0;
+	char *s;
 
-	p = malloc(b);
-	if (p == NULL)
-		exit(98);
-	return (p);
+	if (ac == 0 || av == NULL)
+		return (NULL);
+
+	while (i < ac)
+	{
+		while (av[i][j])
+		{
+			ch++;
+			j++;
+		}
+
+		j = 0;
+		i++;
+	}
+
+	s = malloc((sizeof(char) * ch) + ac + 1);
+
+	i = 0;
+	while (av[i])
+	{
+		while (av[i][j])
+		{
+			s[k] = av[i][j];
+			k++;
+			j++;
+		}
+
+		s[k] = '\n';
+
+		j = 0;
+		k++;
+		i++;
+	}
+
+	k++;
+	s[k] = '\0';
+	return (s);
 }
